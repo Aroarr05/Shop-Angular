@@ -4,3 +4,8 @@
         {{ provider.name }}
     </a>
 </div>
+<div *ngFor="let provider2 of items">
+    <a [title]="provider2.name + ' details'" [routerLink]="['/provider2', provider2.id]">
+        {{ provider2.name }}
+    </a>
+</div>

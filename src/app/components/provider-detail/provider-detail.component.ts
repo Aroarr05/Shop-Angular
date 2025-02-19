@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProvidesService } from '../../services/provides.service'; 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Providers2 } from '../../model/provider2';
 
 @Component({
   selector: 'app-provider-detail',
@@ -15,6 +16,7 @@ export class ProviderDetailComponent implements OnInit {
 
   // almacenamos los datos de un proveedor
   provider?: ProvidersM;
+  provider2?: Providers2
 
   //Pasamos ActivatedRoute para obtener los parámetros
   //Pasamos el servivio ProviderServic para acceder a la información de proveedores
@@ -26,6 +28,7 @@ export class ProviderDetailComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     //Extremos el parámetro 'providerId' de la URL y lo convertimos a un número
     const providerIdFromRoute = Number(routeParams.get('providerId'));
+    const providerIdFromRoute2 = Number(routeParams.get('providerId2'));
 
     //llamamos al servicio para obtener todos los proveedores
     this.providerService.getProviders().subscribe( data => {
@@ -33,6 +36,11 @@ export class ProviderDetailComponent implements OnInit {
       this.provider = data.find(p => Number(p.id) === providerIdFromRoute);
       //Mostramos los proveedores encontrados en la consola 
       console.log(this.provider);
+    })
+
+    this.providerService.getProviders2().subscribe(data =>{
+      this.provider= data.find(e=>Number(e.id)===providerIdFromRoute2);
+      console.log(this.provider2);
     })
   }
 

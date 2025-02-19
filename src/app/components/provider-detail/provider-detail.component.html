@@ -4,4 +4,9 @@
     <h3>Nombre: {{ provider.name }}</h3>
     <button [routerLink]="['/productsProvider' , provider.id ]" >View Products</button>
   </div>
+  <div *ngIf="provider2">
+    <h4>Id: {{ provider2.id  }}</h4>
+    <h3>Nombre: {{ provider2.name }}</h3>
+    <button [routerLink]="['/productsProvider2' , provider2.id ]" >View Products</button>
+  </div>
   

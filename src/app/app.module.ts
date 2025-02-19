@@ -34,6 +34,7 @@ import { ProductProviderComponent } from './components/product-provider/product-
         { path: 'cart', component: CartComponent },
         { path: 'shipping', component: ShippingComponent },
         { path: 'provider/:providerId', component: ProviderDetailComponent },
-        { path: 'productsProvider/:providerId', component: ProductProviderComponent },
+        { path: 'provider2/:provider2Id', component: ProviderDetailComponent },
+        { path: 'productsProvider2/:provider2Id', component: ProductProviderComponent },
     ]), ProviderListComponent], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
