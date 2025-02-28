@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProvidesService } from '../../services/provides.service'; 
 import { ProvidersM } from '../../model/provider'; 
-import { Providers2 } from '../../model/provider2';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -14,7 +13,7 @@ import { RouterModule } from '@angular/router';
 export class ProviderListComponent implements OnInit {
 
   items : ProvidersM[] = [];
-  items2 : Providers2[]= [];
+
 
   constructor(private providerService : ProvidesService){}
   
@@ -23,9 +22,5 @@ export class ProviderListComponent implements OnInit {
       this.items = data;
       console.log(data)
    });
-   this.providerService.getProviders2().subscribe(data =>{
-    this.items2 = data;
-    console.log(data);
-   })
   }
 }
