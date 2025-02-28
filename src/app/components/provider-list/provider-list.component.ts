@@ -23,4 +23,6 @@ export class ProviderListComponent implements OnInit {
       console.log(data)
    });
   }
+
+  
 }

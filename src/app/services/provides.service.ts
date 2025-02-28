@@ -16,7 +16,7 @@ export class ProvidesService {
 
   // declaramos la ruta donde se encuentra el servicio para los proveedores
   private url = "http://localhost:3001/providers";
-  private urlProvidersDos = "http://localhost:3002/providersDos";
+  private urlProductosDos = "http://localhost:3002/productosDos";
 
 
   //constructor que inyecta el servicio HttpClient para hacer peticiones HTTP
