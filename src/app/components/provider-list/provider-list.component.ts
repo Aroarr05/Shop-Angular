@@ -10,13 +10,14 @@ import { RouterModule } from '@angular/router';
   templateUrl: './provider-list.component.html',
   styleUrl: './provider-list.component.css'
 })
+
 export class ProviderListComponent implements OnInit {
 
   items : ProvidersM[] = [];
 
-
   constructor(private providerService : ProvidesService){}
   
+
   ngOnInit(): void {
    this.providerService.getProviders().subscribe( data => {
       this.items = data;
@@ -24,5 +25,5 @@ export class ProviderListComponent implements OnInit {
    });
   }
 
-  
+
 }

@@ -6,5 +6,4 @@ export  interface ProductosDos{
   cost: number;
   details: string;
   supplier: number;
-  provider: ProvidersM;
 }
