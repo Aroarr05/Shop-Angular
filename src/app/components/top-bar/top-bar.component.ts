@@ -19,10 +19,10 @@ import { map, Observable } from 'rxjs';
     styleUrls: ['./top-bar.component.css'],
     standalone: false
 })
+
 export class TopBarComponent {
     
-    numberOfItems$: Observable<number>;
-
+  numberOfItems$: Observable<number>;
   constructor(private cartService: CartService) {
     this.numberOfItems$ = this.cartService.itemsObservable.pipe(
       map(items => items.length)

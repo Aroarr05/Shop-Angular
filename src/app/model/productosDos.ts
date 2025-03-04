@@ -1,4 +1,3 @@
-import { ProvidersM } from "./provider";
 
 export  interface ProductosDos{
   product_id: number;

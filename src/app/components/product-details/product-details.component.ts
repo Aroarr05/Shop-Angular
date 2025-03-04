@@ -11,6 +11,7 @@ import { CartService } from '../../services/cart.service';
     styleUrl: './product-details.component.css',
     standalone: false
 })
+
 export class ProductDetailsComponent implements OnInit {
   
   //Almacenamos los detalles del producto seleccionado
