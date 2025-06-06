@@ -1,0 +1,16 @@
+{
+    "providers": [
+        {
+            "id": 1,
+            "name": "TechMovil S.A."
+        },
+        {
+            "id": 2,
+            "name": "ElectroMundo"
+        },
+        {
+            "id": 3,
+            "name": "Distribuidora CeluTech"
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "productsTwo": [
+    {
+      "product_id": 4,
+      "product_name": "prueba1",
+      "cost": 799,
+      "details": "A large phone with one of the best screens",
+      "supplier": "1"
+    },
+    {
+      "product_id": 5,
+      "product_name": "prueba2",
+      "cost": 699,
+      "details": "A great phone with one of the best cameras",
+      "supplier": "2"
+    },
+    {
+      "product_id": 6,
+      "product_name": "prueba3",
+      "cost": 299,
+      "details": "",
+      "supplier": "3"
+    }
+  ]
+}
