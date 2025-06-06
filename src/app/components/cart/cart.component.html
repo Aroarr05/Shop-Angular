@@ -60,14 +60,18 @@
     <label for="address">Address</label>
     <input id="address" type="text" formControlName="address" required>
   </div>
-  <div>
+    <div>
     <label for="shipping">Shipping</label>
     <select id="shipping" formControlName="shipping" required>
       <option value="">Select a shipping option</option>
-      <option *ngFor="let shipping of shippingCosts | async" [value]="shipping.type">
+      <option *ngFor="let shipping of shippingCosts" [value]="shipping.type">
         {{ shipping.type }} - {{ shipping.price | currency }}
       </option>
     </select>
+  </div>
+
+  <div>
+    <strong>Total a pagar: </strong> {{ totalPrice | currency }}
   </div>
   <button class="button" type="submit" [disabled]="checkoutForm.invalid">Purchase</button>
 </form>

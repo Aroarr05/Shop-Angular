@@ -44,17 +44,29 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
 
+export class CartService {
   private items: Product[] = [];
   private itemsSubject = new BehaviorSubject<Product[]>(this.items);
   itemsObservable = this.itemsSubject.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    // Cargar carrito de localStorage al iniciar el servicio
+    const savedItems = localStorage.getItem('cartItems');
+    if (savedItems) {
+      this.items = JSON.parse(savedItems);
+      this.itemsSubject.next(this.items);
+    }
+  }
+
+  private saveToLocalStorage() {
+    localStorage.setItem('cartItems', JSON.stringify(this.items));
+  }
 
   addToCart(product: Product) {
     this.items.push(product);
-    this.itemsSubject.next(this.items); 
+    this.itemsSubject.next(this.items);
+    this.saveToLocalStorage();
   }
 
   getItems() {
@@ -63,19 +75,21 @@ export class CartService {
 
   clearCart() {
     this.items = [];
-    this.itemsSubject.next(this.items); 
+    this.itemsSubject.next(this.items);
+    this.saveToLocalStorage();
     return this.items;
-  }
-
-  getShippingPrices() {
-    return this.http.get<{type: string, price: number}[]>('/assets/shipping.json');
   }
 
   removeFromCart(product: Product) {
     const index = this.items.findIndex(item => item.id === product.id); 
     if (index !== -1) {
-      this.items.splice(index, 1); 
-      this.itemsSubject.next(this.items); 
+      this.items.splice(index, 1);
+      this.itemsSubject.next(this.items);
+      this.saveToLocalStorage();
     }
+  }
+
+  getShippingPrices() {
+    return this.http.get<{type: string, price: number}[]>('/assets/shipping.json');
   }
 }
